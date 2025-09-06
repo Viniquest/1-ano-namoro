@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz 1 Ano de Namoro ❤️</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home">
+  <header>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="momentos.html">Momentos</a>
+      <a href="mural.html">Mural</a>
+      <a href="declaracao.html">Declaração</a>
+    </nav>
+  </header>
+  <main>
+      <button id="playMusica">🎵 Tocar música</button>
+        <audio id="musica" loop>
+          <source src="audio/musica.mp3" type="audio/mpeg">
+          Seu navegador não suporta áudio.
+        </audio>
+    <h1 class="mensagem">Feliz 1 Ano de Namoro, minha linda ❤️</h1>
+    <div class="foto foto1"><img src="img/foto1.jpg" alt="Foto 1"></div>
+    <div class="foto foto2"><img src="img/foto2.jpg" alt="Foto 2"></div>
+    <div class="foto foto3"><img src="img/foto3.jpg" alt="Foto 3"></div>
+    <div class="foto foto4"><img src="img/foto4.jpg" alt="Foto 4"></div>
+    <div class="foto foto5"><img src="img/foto5.jpg" alt="Foto 5"></div>
+  </main>
+
+  <script>
+    function criarCoracao() {
+      const coracao = document.createElement("div");
+      coracao.classList.add("coracao");
+      coracao.innerHTML = "❤️";
+      coracao.style.left = Math.random() * 100 + "vw"; // posição aleatória
+      coracao.style.animationDuration = (Math.random() * 2 + 3) + "s"; // duração aleatória
+      document.body.appendChild(coracao);
+
+      setTimeout(() => {
+        coracao.remove();
+      }, 5000); // remove após cair
+    }
+
+    setInterval(criarCoracao, 500); // cria um coração a cada 0.5s
+
+    const botao = document.getElementById("playMusica");
+    const musica = document.getElementById("musica");
+
+    botao.addEventListener("click", () => {
+      if (musica.paused) {
+        musica.play();
+        botao.textContent = "⏸️ Pausar música";
+      } else {
+        musica.pause();
+        botao.textContent = "🎵 Tocar música";
+      }
+    });
+  </script>
+</body>
+</html>
